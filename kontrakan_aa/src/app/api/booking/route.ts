@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import connectMongo from "../../../lib/mongodb";
-import DaftarPengajuan from "../../../models/daftar_pengajuan";
+import connectMongo from "@/lib/mongodb";
+import DaftarPengajuan from "@/models/daftar_pengajuan";
 
 export async function POST(req: Request) {
   try {

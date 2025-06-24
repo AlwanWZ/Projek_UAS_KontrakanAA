@@ -255,6 +255,30 @@ export default function LoginPage() {
           <Link href="/" className="text-emerald-400 hover:text-emerald-300 text-sm transition-colors">
             Kembali ke Beranda
           </Link>
+
+<div className="mt-8">
+  <div className="bg-gradient-to-r from-emerald-700/80 to-teal-600/80 border border-emerald-400/40 rounded-lg p-4 shadow-lg text-white">
+    <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
+      <Cpu className="inline w-5 h-5 text-emerald-300" />
+      Catatan Login
+    </h3>
+    <ul className="text-sm space-y-1">
+      <li>
+        <span className="font-semibold text-emerald-200">Tamu:</span> Masuk hanya menggunakan tombol <span className="font-semibold">Google</span>.
+      </li>
+      <li>
+        <span className="font-semibold text-emerald-200">Maintenance:</span> <span className="font-mono">maintenance@gmail.com</span> / <span className="font-mono">1234567</span>
+      </li>
+      <li>
+        <span className="font-semibold text-emerald-200">Super Admin:</span> <span className="font-mono">superadmin@gmail.com</span> / <span className="font-mono">admin12345</span>
+      </li>
+      <li>
+        <span className="font-semibold text-emerald-200">Keuangan:</span> <span className="font-mono">keuangan@gmail.com</span> / <span className="font-mono">1234567</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
         </div>
       </div>
     </main>

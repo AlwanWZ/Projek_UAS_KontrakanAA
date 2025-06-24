@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 import { checkRole } from "@/lib/roleGuard";
 
 interface Pengajuan {
-  id: string; // dikasih _id MongoDB (string 24 karakter hex)
+  id: string; 
   nama: string;
   noHp: string;
   catatan?: string;
@@ -30,7 +30,7 @@ interface Pengajuan {
   durasi?: string;
   hargaSewa: number;
   profileImage?: string;
-  penyewaId: string; // UID user
+  penyewaId: string; 
 }
 
 interface FilterState {

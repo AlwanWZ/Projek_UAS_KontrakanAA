@@ -13,15 +13,31 @@ export default function Home() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
   const [selectedKontrakan, setSelectedKontrakan] = useState<null | typeof galleryData[0]>(null);
+  const [galleryData, setGalleryData] = useState<any[]>([]);
 
-  const galleryData = [
-    { id: 1, src: "/kontrakan/1.jpeg", nama: "Kontrakan AA", harga: 450000 },
-    { id: 2, src: "/kontrakan/2.jpeg", nama: "Kontrakan BB", harga: 500000 },
-    { id: 3, src: "/kontrakan/3.jpeg", nama: "Kontrakan CC", harga: 400000 },
-    { id: 4, src: "/kontrakan/4.jpeg", nama: "Kontrakan DD", harga: 600000 },
-    { id: 5, src: "/kontrakan/5.jpeg", nama: "Kontrakan EE", harga: 350000 },
-  ];
-const RatingList = dynamic(() => import("@/app/rating/rating"), {
+  // Ambil data kontrakan dari API
+  useEffect(() => {
+    const fetchGallery = async () => {
+      try {
+        const res = await fetch("/api/kontrakan");
+        const json = await res.json();
+        setGalleryData(
+          (json.data || []).map((item: any) => ({
+            id: item._id,
+            src: item.foto?.[0] || "/kontrakan/placeholder.jpg",
+            nama: item.nama,
+            harga: item.harga,
+            // tambahkan properti lain jika perlu
+          }))
+        );
+      } catch {
+        setGalleryData([]);
+      }
+    };
+    fetchGallery();
+  }, []);
+  
+const RatingList = dynamic(() => import("@/app/rating/rating").then(mod => mod.RatingList), {
   ssr: false,
   loading: () => <div className="text-slate-400">Memuat testimoni...</div>,
 });
